@@ -1,0 +1,94 @@
+<?php
+$this->requireTemplate("layouts/default.twig");
+class __TwigTemplate_908ea15ddbde28c6ccb2a1a121c324e2 extends __TwigTemplate_c19a24ba4c4f488924cc287729ac8d39 {
+/* LINE:3 */
+public function block_content($context) {
+$context['::superblock'] = array($this, 'parent::block_content');
+echo "\n";
+/* LINE:4 */
+twig_get_current_template()->loader->getTemplate((("feathers/") . (twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "feather"))) . (".twig"))->display($context);
+echo "\n            <div class=\"clear\"></div>\n            ";
+/* LINE:6 */
+if ((!twig_get_attribute(twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "next"), "no_results"))) {
+echo "<a class=\"right next_post\" href=\"";
+echo twig_get_attribute(twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "next"), "url");
+echo "\"><span class=\"arrow\"></span> ";
+echo twig_truncate_filter(twig_get_attribute(twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "next"), "title"), 40);
+echo "</a>";
+}
+echo "\n            ";
+/* LINE:7 */
+if ((!twig_get_attribute(twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "prev"), "no_results"))) {
+echo "<a class=\"left prev_post\" href=\"";
+echo twig_get_attribute(twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "prev"), "url");
+echo "\"><span class=\"arrow\"></span> ";
+echo twig_truncate_filter(twig_get_attribute(twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "prev"), "title"), 40);
+echo "</a>";
+}
+echo "\n            <div class=\"clear\"></div>\n";
+/* LINE:9 */
+if ((twig_get_attribute((isset($context['enabled_modules']) ? $context['enabled_modules'] : NULL), "comments")) && ((twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "comment_count") > ($tmp1 = 0)) || (twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "commentable")))) {
+echo "\n            <div id=\"comment_form\" id=\"comments\">\n                <h3 class=\"comments\">";
+/* LINE:11 */
+echo twig_translate_string_filter("Comments");
+echo "</h3>\n                <ol class=\"comments\" id=\"comments_";
+/* LINE:12 */
+echo twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "id");
+echo "\">\n                    ";
+/* LINE:13 */
+$context['::parent'] = $parent = $context;
+twig_paginate($context,"comments", array($context["::parent"]["post"],"comments"), twig_get_attribute((isset($context['site']) ? $context['site'] : NULL), "comments_per_page"));
+foreach (twig_iterate($context, $context["::parent"]["comments"]->paginated) as $iterator) {
+twig_set_loop_context($context, $iterator, "comment");
+echo "\n                    ";
+/* LINE:14 */
+twig_get_current_template()->loader->getTemplate("content/comment.twig")->display($context);
+echo "\n                    ";
+}
+if (!$context['loop']['iterated']) {
+/* LINE:15 */
+echo "\n                    <li class=\"no_comments\"></li> ";
+/* LINE:16 */
+echo "\n                    ";
+}$context = $context['::parent'];
+/* LINE:17 */
+echo "\n                </ol>\n                ";
+/* LINE:19 */
+echo twig_get_attribute((isset($context['comments']) ? $context['comments'] : NULL), "prev_link");
+echo "\n                ";
+/* LINE:20 */
+echo twig_get_attribute((isset($context['comments']) ? $context['comments'] : NULL), "next_link");
+echo "\n                ";
+/* LINE:21 */
+if (twig_get_attribute((isset($context['comments']) ? $context['comments'] : NULL), "pages") > ($tmp1 = 1)) {
+echo "\n                <span class=\"pages\">";
+/* LINE:22 */
+echo sprintf(twig_translate_string_filter("Page %d of %d"), twig_get_attribute((isset($context['comments']) ? $context['comments'] : NULL), "page"), twig_get_attribute((isset($context['comments']) ? $context['comments'] : NULL), "pages"));
+echo "</span>\n                ";
+}
+/* LINE:23 */
+echo "\n                ";
+/* LINE:24 */
+if (twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "commentable")) {
+echo "\n                ";
+/* LINE:25 */
+twig_get_current_template()->loader->getTemplate("forms/comment/new.twig")->display($context);
+echo "\n                ";
+}
+/* LINE:26 */
+echo "\n                ";
+/* LINE:27 */
+if (twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "comment_status") == ($tmp1 = "closed")) {
+echo "\n                ";
+/* LINE:28 */
+echo twig_translate_string_filter("Comments are not accepted on this entry.");
+echo "\n                ";
+}
+/* LINE:29 */
+echo "\n            </div>\n";
+}
+/* LINE:31 */
+echo "\n";
+}
+
+}

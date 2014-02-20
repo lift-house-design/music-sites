@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head profile="http://gmpg.org/xfn/11">
+        <meta http-equiv="Content-type" content="$theme.type; charset=utf-8" />
+        <title>{% block title %}$site.name{% if title %} &raquo; ${ title | escape }{% endif %}{% endblock %}</title>
+        <meta name="description" content="$site.description" />
+        <link rel="pingback" href="$site.chyrp_url/includes/xmlrpc.php" />
+        <link rel="EditURI" type="application/rsd+xml" href="$site.chyrp_url/includes/rsd.php" />
+        <link rel="canonical" href="{% url route.request %}" />
+        <link href="//fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps" rel="stylesheet" type="text/css">
+        <!-- favicons -->
+        <!-- old android -->
+        <link rel="apple-touch-icon-precomposed" type="image/png" href="/assets/favicons/favicon_pretty_64.png" sizes="64x64" />
+        <!-- apple/android -->
+        <!--link rel="apple-touch-icon" type="image/png" href="/assets/favicons/favicon_144.png" sizes="144x144" />
+        <link rel="apple-touch-icon" type="image/png" href="/assets/favicons/favicon_114.png" sizes="114x114" />
+        <link rel="apple-touch-icon" type="image/png" href="/assets/favicons/favicon_72.png" sizes="72x72" /-->
+        <link rel="apple-touch-icon" type="image/png" href="/assets/favicons/favicon_pretty_57.png" />
+        <!-- most browsers -->
+        <link rel="icon" type="image/png" href="/assets/favicons/favicon_pretty_64.png" sizes="64x64" />
+        <link rel="icon" type="image/png" href="/assets/favicons/favicon_pretty_32.png" sizes="32x32" />
+        <!-- IE -->
+        <link rel="shortcut icon" href="/assets/favicons/favicon_pretty.ico">
+        {% if post.next.url %}<link rel="next" href="$post.next.url" />{% endif %}
+        {% if post.prev.url %}<link rel="prev" href="$post.prev.url" />{% endif %}
+        $theme.feeds
+        $theme.stylesheets
+        $theme.javascripts
+        <link href="/assets/css/blog.css" rel="stylesheet" type="text/css"/>
+    ${ trigger.call("head") }
+    </head>
+    <body>
+        {% if visitor.group.can("add_post", "add_draft", "add_page", "view_own_draft", "view_draft", "change_settings", "toggle_extensions") %}
+        <div id="controls"{% if hide_admin %} style="display: none"{% endif %}>
+            <ul>
+                {% if visitor.group.can("add_post") %}
+                <li><a id="add_post" href="{% admin "write_post" %}">${ "Write" | translate }</a></li>
+                {% elseif visitor.group.can("add_draft") %}
+                <li><a id="add_draft" href="{% admin "write_post" %}">${ "Write Draft" | translate }</a></li>
+                {% endif %}
+                {% if visitor.group.can("add_page") %}
+                <li><a id="add_page" href="{% admin "write_page" %}">${ "Add Page" | translate }</a></li>
+                {% endif %}
+                {% if visitor.group.can("view_own_draft", "view_draft") %}
+                <li><a id="your_drafts" href="{% url "drafts" %}">${ "Your Drafts" | translate }</a></li>
+                {% endif %}
+                {% if visitor.group.can("change_settings", "toggle_extensions") %}
+                <li><a id="site_settings" href="$site.chyrp_url/admin/">${ "Admin" | translate }</a></li>
+                {% endif %}
+                <li class="close"><a class="toggle_admin" href="{% url "toggle_admin" %}">${ "Close" | translate }</a></li>
+            </ul>
+        </div>
+        {% endif %}
+        <div id="top" class="spacer20"></div>
+        <div id="title-wrapper">
+            <div id="logo-wrapper">
+                <div id="logo">
+                    <a href="/" title="Lift House Design">
+                        <img src="/assets/img/NEWlogo.png"/ alt="Lift House Design">
+                    </a>
+                    <div id="logo-below">Your ascent to the summit begins here...</div>
+                </div>
+            </div>
+        </div>
+        <div id="container">
+            <!--
+                {% if site.name %}
+                <div id="header">
+                    <div id="search_box">
+                        <form action="$site.url" method="get" accept-charset="utf-8">
+                            <fieldset>
+                                <input type="hidden" name="action" value="search" id="action" />
+                                <input type="text" id="search" name="query" value="${ GET.query | escape }" x-webkit-speech />
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="header_box">
+                        <h1><a href="$site.url">$site.name</a>
+                            {% if site.description %}<span class="description">$site.description</span>{% endif %}
+                        </h1>
+                    </div>
+                </div>
+                {% endif %}
+            -->
+            <div id="wrapper">
+                {% for type, messages in flash.all | items %}
+                {% for message in messages %}
+                <div class="${ type | depluralize }">$message</div>
+                {% endfor %}
+                {% endfor %}
+                {% include "content/sidebar.twig" %}
+                <div id="content">
+                {% block content %}{% endblock %}
+                <div class="clear"></div>
+                <div class="page_nav">
+                    $posts.prev_link
+                    {% if posts.paginated and posts.pages > 1 %}
+                    <span class="pages">${ "Page %d of %d" | translate | format(posts.page, posts.pages) }</span>
+                    {% endif %}
+                    $posts.next_link
+                </div>
+                </div>
+                <div class="clear"></div>
+                <!--div id="footer">
+                    <p>
+                        Copyright © 2013 
+                        <span style="float:right">
+                            Powered by <a href="http://lifthousedesign.com/">Lift House Design</a>
+                        </span>
+                    </p>
+                </div-->
+            </div>
+        </div>
+        ${ trigger.call("end_content") }
+        {% include "content/debug.twig" %}
+        <link href="//fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+        <footer>
+            <div class="wrapper">
+                <div id="footer-top">
+                    <a href="#linkedin" target="_blank"><img src="/assets/img/layout/linkedin.png" alt=""></a>                <a href="http://www.twitter.com/lifthousedesign" target="_blank"><img src="/assets/img/layout/twitter.png" alt=""></a>             <span id="check-us-out">...well check us out...</span>
+                    <a href="http://www.facebook.com/pages/Lift-House-Design/414101198659126" target="_blank"><img src="/assets/img/layout/facebook.png" alt=""></a>               <a href="http://www.youtube.com/lifthousedesign" target="_blank"><img src="/assets/img/layout/youtube.png" alt=""></a>         </div>
+                <div id="footer-bottom">
+                    <div id="copyright">Copyright © 2013 | Lift House Design</div>
+                    <div id="links">
+                        <a href="/terms-conditions" class="popup">Terms and Conditions</a>                  <a href="/privacy-policy" class="popup">Privacy Policy</a>                  <a href="#quote" data-focus="#quote-form input[name='name']">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Queries: $sql_queries | Load Time: $theme.load_time -->
+    </body>
+</html>

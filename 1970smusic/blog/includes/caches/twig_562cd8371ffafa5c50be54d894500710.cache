@@ -1,0 +1,396 @@
+<?php
+class __TwigTemplate_562cd8371ffafa5c50be54d894500710 {
+public function render($context) {
+/* LINE:1 */
+echo "            <form id=\"post_edit_form_";
+echo twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "id");
+echo "\" class=\"inline_edit post_edit\" action=\"";
+echo fix(Config::current()->chyrp_url."/admin/?action=".("update_post"));
+echo "\" method=\"post\" accept-charset=\"utf-8\" enctype=\"multipart/form-data\">\n                <fieldset>\n                    ";
+/* LINE:3 */
+echo call_user_func(array((isset($context['trigger']) ? $context['trigger'] : NULL), "call"), "before_ajax_edit_post_fields", (isset($context['feather']) ? $context['feather'] : NULL));
+echo "\n                    ";
+/* LINE:4 */
+$context['::parent'] = $parent = $context;
+foreach (twig_iterate($context, twig_get_attribute((isset($context['feather']) ? $context['feather'] : NULL), "fields")) as $iterator) {
+twig_set_loop_context($context, $iterator, "field");
+echo "\n                    <p>\n                        <label for=\"";
+/* LINE:6 */
+echo twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "attr");
+echo "\">\n                            ";
+/* LINE:7 */
+echo twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "label");
+echo "\n                            ";
+/* LINE:8 */
+if (twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "optional")) {
+echo "\n                            <span class=\"sub\">";
+/* LINE:9 */
+echo twig_translate_string_filter("(optional)");
+echo "</span>\n                            ";
+}
+/* LINE:10 */
+echo "\n                        </label>\n                        ";
+/* LINE:12 */
+if ((twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "type") == ($tmp1 = "text")) || (twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "type") == ($tmp1 = "file"))) {
+echo "\n                        <input class=\"";
+/* LINE:13 */
+echo twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "type");
+if (twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "classes")) {
+echo " ";
+echo twig_join_filter(twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "classes"), " ");
+}
+echo "\" type=\"";
+echo twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "type");
+echo "\" name=\"";
+echo twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "attr");
+if (twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "multiple") == ($tmp1 = "true")) {
+echo "[]\" multiple";
+} else {
+echo "\"";
+}
+echo " value=\"";
+if ((!twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "no_value"))) {
+echo oneof(twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "value"), twig_escape_filter(twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "attr"), false), true, false));
+}
+echo "\" id=\"";
+echo twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "attr");
+echo "\" />\n                        ";
+}
+elseif (twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "type") == ($tmp1 = "text_block")) {
+/* LINE:14 */
+echo "\n                        <textarea class=\"wide";
+/* LINE:15 */
+if (twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "classes")) {
+echo " ";
+echo twig_join_filter(twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "classes"), " ");
+}
+echo "\" rows=\"";
+echo oneof(twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "rows"), 12);
+echo "\" name=\"";
+echo twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "attr");
+echo "\" id=\"";
+echo twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "attr");
+echo "\" cols=\"50\">";
+if ((!twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "no_value"))) {
+echo oneof(twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "value"), twig_escape_filter(twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "attr"), false), false, false));
+}
+echo "</textarea>\n                        ";
+}
+elseif (twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "type") == ($tmp1 = "checkbox")) {
+/* LINE:16 */
+echo "\n                        <input class=\"";
+/* LINE:17 */
+echo twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "type");
+if (twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "classes")) {
+echo " ";
+echo twig_join_filter(twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "classes"), " ");
+}
+echo "\" type=\"";
+echo twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "type");
+echo "\" name=\"";
+echo twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "attr");
+echo "\"";
+if (twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "checked")) {
+echo "checked=\"checked\"";
+}
+echo " id=\"";
+echo twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "attr");
+echo "\">\n                        ";
+}
+elseif (twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "type") == ($tmp1 = "select")) {
+/* LINE:18 */
+echo "\n                        <select name=\"";
+/* LINE:19 */
+echo twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "attr");
+echo "\" id=\"";
+echo twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "attr");
+echo "\"";
+if (twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "classes")) {
+echo " class=\"";
+echo twig_join_filter(twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "classes"), " ");
+echo "\"";
+}
+echo ">\n                            ";
+/* LINE:20 */
+$context['::parent'] = $parent = $context;
+foreach (twig_iterate($context, twig_get_array_items_filter(twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "options"))) as $iterator) {
+twig_set_loop_context_multitarget($context, $iterator, array("value", "name"));
+echo "\n                            <option value=\"";
+/* LINE:21 */
+echo twig_escape_filter((isset($context['value']) ? $context['value'] : NULL));
+echo "\"";
+if ((!twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "no_value"))) {
+echo twig_option_selected_filter((isset($context['value']) ? $context['value'] : NULL), twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "attr"), false));
+}
+echo ">";
+echo twig_escape_filter((isset($context['name']) ? $context['name'] : NULL));
+echo "</option>\n                            ";
+}
+$context = $context['::parent'];
+/* LINE:22 */
+echo "\n                        </select>\n                        ";
+}
+/* LINE:24 */
+echo "\n                    </p>\n                    ";
+}
+$context = $context['::parent'];
+/* LINE:26 */
+echo "\n\n                    <a id=\"more_options_link_";
+/* LINE:28 */
+echo twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "id");
+echo "\" href=\"javascript:void(0)\" class=\"more_options_link\">";
+echo twig_translate_string_filter("More Options &darr;", "chyrp");
+echo "</a>\n                    <div id=\"more_options_";
+/* LINE:29 */
+echo twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "id");
+echo "\" class=\"more_options\" style=\"display: none\">\n                        ";
+/* LINE:30 */
+if (call_user_func(array(twig_get_attribute((isset($context['visitor']) ? $context['visitor'] : NULL), "group"), "can"), "add_post")) {
+echo "\n                        <p>\n                            <label for=\"status\">";
+/* LINE:32 */
+echo twig_translate_string_filter("Status");
+echo "</label>\n                            <select name=\"status\" id=\"status\">\n                                <option value=\"draft\"";
+/* LINE:34 */
+if (twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "status") == ($tmp1 = "draft")) {
+echo " selected=\"selected\"";
+}
+echo ">";
+echo twig_translate_string_filter("Draft");
+echo "</option>\n                                <option value=\"public\"";
+/* LINE:35 */
+if (twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "status") == ($tmp1 = "public")) {
+echo " selected=\"selected\"";
+}
+echo ">";
+echo twig_translate_string_filter("Public");
+echo "</option>\n                                <option value=\"private\"";
+/* LINE:36 */
+if (twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "status") == ($tmp1 = "private")) {
+echo " selected=\"selected\"";
+}
+echo ">";
+echo twig_translate_string_filter("Private");
+echo "</option>\n                                <option value=\"scheduled\"";
+/* LINE:37 */
+if (twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "status") == ($tmp1 = "scheduled")) {
+echo " selected=\"selected\"";
+}
+echo ">";
+echo twig_translate_string_filter("Scheduled");
+echo "</option>\n                                <option value=\"registered_only\"";
+/* LINE:38 */
+if (twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "status") == ($tmp1 = "registered_only")) {
+echo " selected=\"selected\"";
+}
+echo ">";
+echo twig_translate_string_filter("Registered Only");
+echo "</option>\n                                ";
+/* LINE:39 */
+if ((isset($context['groups']) ? $context['groups'] : NULL)) {
+echo "\n                                <optgroup label=\"";
+/* LINE:40 */
+echo twig_translate_string_filter("Group");
+echo "\">\n                                    ";
+/* LINE:41 */
+$context['::parent'] = $parent = $context;
+foreach (twig_iterate($context, (isset($context['groups']) ? $context['groups'] : NULL)) as $iterator) {
+twig_set_loop_context($context, $iterator, "group");
+echo "\n                                    <option value=\"{";
+/* LINE:42 */
+echo twig_get_attribute((isset($context['group']) ? $context['group'] : NULL), "id");
+echo "}\"";
+echo twig_option_selected_filter(twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "status"), (("{") . (twig_get_attribute((isset($context['group']) ? $context['group'] : NULL), "id"))) . ("}"));
+echo ">";
+echo twig_escape_filter(twig_get_attribute((isset($context['group']) ? $context['group'] : NULL), "name"));
+echo "</option>\n                                    ";
+}
+$context = $context['::parent'];
+/* LINE:43 */
+echo "\n                                </optgroup>\n                                ";
+}
+/* LINE:45 */
+echo "\n                            </select>\n                        </p>\n                        ";
+}
+/* LINE:48 */
+echo "\n                        <p>\n                            <label for=\"pinned\">";
+/* LINE:50 */
+echo twig_translate_string_filter("Pinned?");
+echo "</label>\n                            <input type=\"checkbox\" name=\"pinned\" id=\"pinned\"";
+/* LINE:51 */
+if (twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "pinned")) {
+echo " checked=\"checked\"";
+}
+echo "/>&nbsp;\n                            <small>";
+/* LINE:52 */
+echo twig_translate_string_filter("(shows this post above all others)");
+echo "</small>\n                        </p>\n                        <p>\n                            <label for=\"slug\">";
+/* LINE:55 */
+echo twig_translate_string_filter("Slug");
+echo "</label>\n                            <input class=\"text\" type=\"text\" name=\"slug\" value=\"";
+/* LINE:56 */
+echo twig_escape_filter(twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "slug"));
+echo "\" id=\"slug\" />\n                        </p>\n                        <p>\n                            <label for=\"created_at\">";
+/* LINE:59 */
+echo twig_translate_string_filter("Timestamp");
+echo "</label>\n                            <input class=\"text\" type=\"text\" name=\"created_at\" value=\"";
+/* LINE:60 */
+echo twig_strftime_format_filter(oneof(twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "created_at"), twig_date_format_filter((isset($context['now']) ? $context['now'] : NULL), "r")));
+echo "\" id=\"created_at\" />\n                            <input type=\"hidden\" name=\"original_time\" value=\"";
+/* LINE:61 */
+echo twig_strftime_format_filter(oneof(twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "created_at"), twig_date_format_filter((isset($context['now']) ? $context['now'] : NULL), "r")));
+echo "\" />\n                        </p>\n                        <p>\n                            <label for=\"trackbacks\">";
+/* LINE:64 */
+echo twig_translate_string_filter("Trackbacks");
+echo "</label>\n\n                            <input class=\"text\" type=\"text\" name=\"trackbacks\" value=\"\" id=\"trackbacks\" />\n                        </p>\n                        ";
+/* LINE:68 */
+$context['::parent'] = $parent = $context;
+foreach (twig_iterate($context, (isset($context['options']) ? $context['options'] : NULL)) as $iterator) {
+twig_set_loop_context($context, $iterator, "field");
+echo "\n                        <p>\n                            <label for=\"";
+/* LINE:70 */
+echo twig_replace_filter(twig_replace_filter(twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "attr"), "[", "_"), "]", "");
+echo "\">\n                                ";
+/* LINE:71 */
+echo twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "label");
+echo "\n                                ";
+/* LINE:72 */
+if (twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "help")) {
+echo "\n                                <span class=\"sub\">\n                                    <a href=\"";
+/* LINE:74 */
+echo fix(Config::current()->chyrp_url."/admin/?action=".(("help&id=") . (twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "help"))));
+echo "\" class=\"help emblem\"><img src=\"images/icons/help.png\" alt=\"help\" /></a>\n                                </span>\n                                ";
+}
+/* LINE:76 */
+echo "\n                                ";
+/* LINE:77 */
+if (twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "note")) {
+echo "\n                                <span class=\"sub\">";
+/* LINE:78 */
+echo twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "note");
+echo "</span>\n                                ";
+}
+/* LINE:79 */
+echo "\n                            </label>\n                            ";
+/* LINE:81 */
+if ((twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "type") == ($tmp1 = "text")) || (twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "type") == ($tmp1 = "file"))) {
+echo "\n                            <input class=\"";
+/* LINE:82 */
+echo twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "type");
+if (twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "classes")) {
+echo " ";
+echo twig_join_filter(twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "classes"), " ");
+}
+echo "\" type=\"";
+echo twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "type");
+echo "\" name=\"";
+echo twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "attr");
+echo "\" value=\"";
+if ((!twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "no_value"))) {
+echo oneof(twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "value"), twig_escape_filter(twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "attr"), false), true, false));
+}
+echo "\" id=\"";
+echo twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "attr");
+echo "\" />\n                            ";
+}
+elseif (twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "type") == ($tmp1 = "text_block")) {
+/* LINE:83 */
+echo "\n                            <textarea class=\"wide";
+/* LINE:84 */
+if (twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "classes")) {
+echo " ";
+echo twig_join_filter(twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "classes"), " ");
+}
+echo "\" rows=\"";
+echo oneof(twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "rows"), 12);
+echo "\" name=\"";
+echo twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "attr");
+echo "\" id=\"";
+echo twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "attr");
+echo "\" cols=\"50\">";
+if ((!twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "no_value"))) {
+echo oneof(twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "value"), twig_escape_filter(twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "attr"), false), false, false));
+}
+echo "</textarea>\n                            ";
+}
+elseif (twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "type") == ($tmp1 = "checkbox")) {
+/* LINE:85 */
+echo "\n                            <input class=\"";
+/* LINE:86 */
+echo twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "type");
+if (twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "classes")) {
+echo " ";
+echo twig_join_filter(twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "classes"), " ");
+}
+echo "\" type=\"";
+echo twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "type");
+echo "\" name=\"";
+echo twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "attr");
+echo "\"";
+if (twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "checked")) {
+echo "checked=\"checked\"";
+}
+echo " id=\"";
+echo twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "attr");
+echo "_field\" />\n                            ";
+}
+elseif (twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "type") == ($tmp1 = "select")) {
+/* LINE:87 */
+echo "\n                            <select name=\"";
+/* LINE:88 */
+echo twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "attr");
+echo "\" id=\"";
+echo twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "attr");
+echo "\"";
+if (twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "classes")) {
+echo " class=\"";
+echo twig_join_filter(twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "classes"), " ");
+echo "\"";
+}
+echo ">\n                                ";
+/* LINE:89 */
+$context['::parent'] = $parent = $context;
+foreach (twig_iterate($context, twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "options")) as $iterator) {
+twig_set_loop_context($context, $iterator, "option");
+echo "\n                                <option value=\"";
+/* LINE:90 */
+echo twig_escape_filter(twig_get_attribute((isset($context['option']) ? $context['option'] : NULL), "value"));
+echo "\"";
+echo twig_option_selected_filter(twig_get_attribute((isset($context['option']) ? $context['option'] : NULL), "selected"), true);
+echo ">";
+echo twig_escape_filter(twig_get_attribute((isset($context['option']) ? $context['option'] : NULL), "name"));
+echo "</option>\n                                ";
+}
+$context = $context['::parent'];
+/* LINE:91 */
+echo "\n                            </select>\n                            ";
+}
+/* LINE:93 */
+echo "\n                            ";
+/* LINE:94 */
+echo twig_get_attribute((isset($context['field']) ? $context['field'] : NULL), "extra");
+echo "\n                        </p>\n                        ";
+}
+$context = $context['::parent'];
+/* LINE:96 */
+echo "\n                        <div class=\"clear\"></div>\n                    </div>\n                    <br />\n\n                    <div class=\"buttons\">\n                        <button>";
+/* LINE:102 */
+echo twig_translate_string_filter("Save");
+echo "</button> ";
+echo twig_translate_string_filter("or");
+echo "\n                        <a href=\"javascript:void(0)\" id=\"post_cancel_edit_";
+/* LINE:103 */
+echo twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "id");
+echo "\" class=\"cancel\">";
+echo twig_translate_string_filter("Cancel");
+echo "</a>\n                    </div>\n\n                    <input type=\"hidden\" name=\"id\" value=\"";
+/* LINE:106 */
+echo twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "id");
+echo "\" id=\"id\" />\n                    <input type=\"hidden\" name=\"feather\" value=\"";
+/* LINE:107 */
+echo twig_escape_filter(twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "feather"));
+echo "\" id=\"feather\" />\n                    <input type=\"hidden\" name=\"hash\" value=\"";
+/* LINE:108 */
+echo twig_get_attribute((isset($context['site']) ? $context['site'] : NULL), "secure_hashkey");
+echo "\" id=\"hash\" />\n                    <input type=\"hidden\" name=\"ajax\" value=\"true\" id=\"ajax\" />\n                </fieldset>\n            </form>\n";
+}
+}

@@ -1,0 +1,211 @@
+
+Changelog Legend:
+----
+
+  + = Added
+  x = Removed
+  * = Fixed
+  ^ = Merged
+  = = No Changes
+  ! = Bugs
+
+Dates in (Month/Day/Year)
+
+----
+
+  == 2.5 RC2 == (10/06/2013)
+  + Added File Feather (Thanks @xenocrat)
+  + Added Cascade Module for Home page infinite scrolling (Thanks @xenocrat)
+  + Added Titles on all Feathers (Thanks @TheInfection)
+  + Added jPlayer to Audio Feather (Thanks @TheInfection)
+  + Added Photo Feather URL detection to [option][source] (Thanks @xenocrat)
+  + Added support to file inputs for HTML5 "multiple" flag. (Thanks @xenocrat)
+
+  + Updated Cookie domain setting.
+  + Updated Theme.php (Thanks @LoRDxRaVeN)
+  + Updated Read More module to catch posts created with RedactorJS (Thanks @xenocrat)
+
+  x Removed content header declaration (Thanks @xenocrat)
+
+  * Fixed Likes Module Ajax functionality (Thanks @xenocrat)
+  * Fixed inline-post editing with AJAX.
+  * Fixed inline-comment posting/editing with AJAX
+  * Fixed Dropbox Module Post status.
+  * Fixed Aggregator Module displaying blog twice. (Thanks @xenocrat)
+  * Fixed an old login issue when running Chyrp under IP Address (Thanks @BitNami)
+
+  ^ Merged #153 Update remote checker fix for those with allow_url_fopen disabled. (Thanks @PolarLava)
+  ^ Merged #154 Entity handling for Read More module and Atom feed. (Thanks @PolarLava)
+  ^ Merged #155 Fix Categorize module Atom feed category syntax to validate properly. (Thanks @PolarLava)
+  ^ Merged #164 Many Firecrest theme & Module templates tweaks (Thanks a bunch @TheInfection)
+  ^ Merged #165 Admin Theme Overhaul - Now we're talking responsive. (Thanks a bunch @xenocrat)
+
+  + Many other minor bug fixes.
+
+
+  == 2.5 RC1 == (12/29/2012)
+  + Added Dropbox Module
+  + Added RedactorJS' Image Upload modal
+
+  + Updated RedactorJS with option to turn on/off.
+  + Updated Proper HTTP Protocol detection during Install.
+  + Updated Audio Feather now defaults to HTML5 Audio Tag
+  + Updated Firecrest Theme for all pages.
+  + Updated more Localizable strings.
+  + Updated Made Check for Updates optional.
+  + Updated RedactorJS v8.2.0
+  + Updated jQuery and jQuery UI libraries.
+  + Updated jQuery Form plugin.
+  + Updated Lot of refactoring for Likes Module.
+  + Updated Admin and Firecrest themes to print dynamic years.
+
+  * Fixed WordPress Importer for backward compatibility.
+  * Fixed Comment email notification issue.
+  * Fixed #105 Atom Feed acting stupidly.
+    (You're encouraged to read the comment for this commit @2650011)
+  * Fixed #114 Removed bio and twitter from profile page.
+  * Fixed #125 thumb.php double extension. (Thanks @ParadisoShlee)
+  * Fixed #129 Uploads directory now ships with Chyrp.
+  * Fixed #133 Tag module to support SQL Table prefix. (Thanks @drahnr)
+  * Fixed #135 Read More module long aged &nbsp; bug.
+  * Fixed #138 Password reset not changed despite email. (Thanks @modernhippie)
+  * Fixed #139 Aggregator Module breaks page to blank.
+  * Fixed #141 Could not enable Extension Manager module.
+  * Fixed #143 Modules wouldn't enable/disable.
+  * Fixed #145 A workaround GZip issue.
+  * Fixed #146 Session table oddly filling up.
+  * Fixed #147 Issue with thumb.php to return null.
+  * Fixed #148 Updated (!) Pinned post symbol with icon.
+  * Fixed #152 Image not scaling properly on pages.
+ 
+  + Many other minor bug fixes.
+
+
+  == 2.5 Beta 3 == (10/20/2012)
+  + Added RedactorJS as the new WYSIWYG Text Editor.
+  + Added HTML5 Auto Focus on Forms.
+  + Added HTML5 Voice Search for Chrome.
+  + Added Related Posts feature in Tags Module.
+  + Added Help hint in Video Feather.
+  
+  + Updated Translatable Strings for 2.5.
+  + Updated Firecrest Theme Tweaks.
+  + Updated Stronger Anti-spambot email verification.
+  + Updated IMAP support for other servers in EmailBlog Module.
+  + Updated Admin pages to return 403 on lack of permissions.
+  + Updated Radically changed Update process.
+  + Updated Markdown Module.
+  
+  * Fixed Route does not map post in URL with params.
+  * Fixed notable issues in Comments Module.
+  * Fixed reported issues with user Login/Registration.
+  * Fixed Searching an empty string returns Flash::warning.
+  * Fixed Properly sanitize search $_GET value.
+  * Fixed reCAPTCHA hooks and made it a Module.
+  * Fixed EmailBlog Subject.
+  * Fixed email validation when table has prefix.
+  * Fixed issue #104 - Theme Editor screwing up HTML entities.
+  * Fixed issue #121 - Like module setting improper image url.
+ 
+  + More Whitespace cleanups.
+  + Many other minor bug fixes.
+
+
+  == 2.5 Beta 2 == 02/08/2012
+  + Added Firecrest Theme (replaces Stardust)
+  + Added Like module. (Closes #61)
+  + Added rel="next" and rel="prev" for Google SEO.
+  + Added Aggregator module default post status option. (Thanks @toastwaffle)
+  + Added Recaptcha for Site Registrations. (Thanks @12345j)
+  + Updated Link Feather's Title, now it's optional.
+  + Updated WYSIWYG libraries.
+  + Updated lots of code to match Chyrp Code Style.
+  + Updated Categorize module code cleanup.
+  + Updated SWFUpload module with latest SWFObject lib.
+
+  * Fixed couple issues with Automatic Upgrader (Thanks @12345j)
+  * Fixed Aggregator module forgetting last update time (@toastwaffle)
+  * Fixed Undefined variable in Video Feather.
+  * Fixed an SQL issue with Nofity in Comments module.
+  * Fixed upload_from_url() method (Thanks @Simon Parzer)
+  * Fixed email approved. (Thanks @12345j)
+  * Fixed Theme Editor could be publicly accessed.
+  * Fixed a potential XSS vulnerability in ajax.php
+  * Fixed Undefined $_SESSION['redirect_to'] during login.
+  * Fixed issue #5 - Upgrade.php to include all newly added Config settings.
+  * Fixed issue #47 - After Upgrade per-directory check. (Thanks @12345j)
+  * Fixed issue #49 - Activate by Email wasn't being set by Installer.
+  * Fixed issue #54 - Fixes recaptcha. (Thanks @12345j)
+  * Fixed issue #57 - Categorize module broken images source. (Thanks @ParadisoShlee)
+  * Fixed issue #60 - metaWeblog_editPost slug issue. (Thanks @pascal-n)
+  * Fixed issue #64 - Photo & Audio post options not shown when editing.
+  * Fixed issue #69 - Returning added comment with AJAX.
+  * Fixed issue #70 - Comment Update screws up timestamp.
+  * Fixed issue #71 - Comment reply functionality. (Thanks @12345j)
+
+
+  == 2.5 Beta 1 == 10/24/2011
+  + Added Categorize Module. (Thanks @PolarLava)
+  + Added WYSIWYG Text Editor for Markdown and Textilize modules.
+  + Added HTML Meta "noindex" tag to Admin Theme
+  + Added Field Type 'checkbox" in Admin Theme.
+  + Added Field Type "checkbox" in Stardust Theme.
+  + Added Theme Editor.
+  + Added Scheduled Posting.
+  + Added Automatic Upgrade functionality. (Thanks @12345j)
+  + Added Notify option in Comment System Module (Thanks @12345j)
+  + Added Threaded Commenting functionality.
+  + Added email publishing support. EmailBlog Module (Thanks @12345j)
+  + Added registration activation by email.
+  + Added improvement for arbitrary templates in post_from_url() (Thanks @cschorn)
+  + Added deprecated() function to mark deprecated methods.
+  + Added $post.author to be used in favor of $post.user (deprecated)
+  + Added random() function, returns a random post to read.
+  + Added Like Post Module, offering option to like/unlike a post.
+  + Added ability to login after completing installation (Thanks @12345j)
+  + Improved Archive Page for 60% speed performance.
+  + Updated tests to use 'secure_hashkey' from config (Thanks @cschorn)
+  + Updated Video Feather. Now using AutoEmbed.php Class. Fixed #39.
+
+  * Fixed HTML canonical link to be displayed for every part of the site accordingly.
+  * Fixed wrong feed URL per page.
+  * Fixed a caching issue was improperly loading and caching .js files.
+  * Fixed get_remote() helper function for HTTP/1.0 servers. (Thanks @TiGR)
+  * Fixed unnecessary parameter passed to truncate() function
+  * Fixed SSL issue in self_url() function. (Thanks @PolarLava)
+  * Fixed JavaScript issue in WebKit browsers.
+  * Fixed issue #6 - Potential brute force dictionary attacks may have been conducted.
+  * Fixed issue #7 - Archive Page load SQL query overload. (Thanks @ottob)
+  * Fixed issue #8 - When creating a Post/Page on PostgreSQL. (Thanks @ottob)
+  * Fixed issue #12 - undefined constant PHP notice in Upgrade script. (Thanks @PolarLava)
+  * Fixed issue #13 - Paginator.php class now works with HTTPS. (Thanks @ParadisoShlee)
+  * Fixed issue #14 - XSS and LFI vulnerability.
+  * Fixed issue #16 - Special characters were double encoded into HTML entities. (Thanks @miguelangelnieto)
+  * Fixed issue #21 & #22 - Error in upgrade.php script. (Thanks @PolarLava)
+  * Fixed issue #24 - Ditched split() for explode() in textilize library. (Thanks @PolarLava)
+  * Fixed issue #35 - Read More Module RegEx issue. (Thanks @cschorn)
+  * Fixed issue #38 - Enabling Admin Theme was defaulting back to default theme.
+  * Fixed issue #44 - Importing XMLs from recent Wordpress versions (Thanks @kuehnelth)
+
+
+# Chyrp 2.1
+
+  + Added: a note in Audio and Photo feathers that shows max. file size upload limit.
+  + Added: Audio and Photo feathers now show uploaded file name when editing a respective post.
+  + Added: Akismet and ditched Defensio for blocking spam comments.
+  + Updated: Comments Module with full Akismet support.
+  + Updated: PasswordHash library.
+  + Updated: Incutio XML-RPC library.
+  + Updated: PHP-gettext library.
+  + Updated: Chyrp forums link on <code>upgrade.php</code> script.<br />
+
+  * Fixed: Weird login issue reported on the forums. (Thanks Chad)
+  * Fixed: A localization related error. (Thanks Alex)
+  * Fixed: PHP warning returned if <code>is_readable()</code> is inaccessible. (Thanks Iov)
+  * Fixed: an issue with draft posts when creating and/or viewing a draft.
+  * Fixed: a jQuery issue in Chyrp Installer.
+  * Fixed: WordPress importer, now passes post's is_sticky value to post pinned.
+  * Fixed issue #1: Tumblr Importer.
+  * Fixed issue #2 - Chyrp now requires PHP 5.2.0.
+  * Fixed issue #3 - a PHP Warning when updating a post with no tags in it.
+  -	Removed: <code>edit_link</code> method from Post model. Edit link for models is provided by the parent class Model.

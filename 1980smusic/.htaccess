@@ -1,0 +1,20 @@
+RewriteEngine on
+
+# Use SSL always
+#RewriteCond %{HTTPS} !=on
+#RewriteCond %{HTTP_HOST}  !^local
+#RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+############################################
+
+# Codeigniter Stuff
+RewriteCond $1 !^(favicon\.ico|index\.php|assets|min|blog|user_guide|robots\.txt)
+RewriteRule ^(.*)$ /index.php/$1 [L]
+
+############################################
+
+# Blog [Chyrp] Stuff
+RewriteBase /blog
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L]

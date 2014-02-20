@@ -1,0 +1,134 @@
+<?php
+class __TwigTemplate_9a03d49621a9353c4c028163b46237c9 {
+public function render($context) {
+/* LINE:1 */
+echo "<div class=\"post ";
+echo twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "feather");
+if (twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "pinned")) {
+echo " pinned";
+}
+echo "\" id=\"post_";
+echo twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "id");
+echo "\">\n                    <!--div class=\"feather_type\">\n                        <span class=\"feather_type_name\">";
+/* LINE:3 */
+echo twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "feather");
+echo "</span>\n                        <span class=\"shadow\"></span>\n                    </div-->\n                    <div class=\"subpost\">\n                        ";
+/* LINE:7 */
+if (twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "pinned")) {
+echo "<span class=\"pinned_icon\" title=\"Pinned Post\">&nbsp;</span>";
+}
+echo "\n                        ";
+/* LINE:8 */
+if (twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "status") == ($tmp1 = "private")) {
+echo "<span class=\"private_text\">";
+echo twig_translate_string_filter("PRIVATE");
+echo "</span>";
+}
+echo "\n                        ";
+/* LINE:9 */
+if (twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "status") == ($tmp1 = "scheduled")) {
+echo "<span class=\"scheduled_text\">";
+echo twig_translate_string_filter("SCHEDULED");
+echo "</span>";
+}
+echo "\n                        ";
+/* LINE:10 */
+$this->block_content($context);
+echo "\n                        ";
+/* LINE:11 */
+if (((twig_get_attribute((isset($context['route']) ? $context['route'] : NULL), "action") == ($tmp1 = "view")) && (twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "paginated"))) && (twig_get_attribute(twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "paginated"), "pages") > ($tmp1 = 1))) {
+echo "\n                        <div class=\"clear\"></div>\n                        ";
+/* LINE:13 */
+echo twig_get_attribute(twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "paginated"), "prev_link");
+echo "\n                        ";
+/* LINE:14 */
+echo twig_get_attribute(twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "paginated"), "next_link");
+echo "\n                        <span class=\"pages\">";
+/* LINE:15 */
+echo sprintf(twig_translate_string_filter("Page %d of %d"), twig_get_attribute(twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "paginated"), "page"), twig_get_attribute(twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "paginated"), "pages"));
+echo "</span>\n                        ";
+}
+/* LINE:16 */
+echo "\n                        <div class=\"clear\"></div>\n                        <div class=\"post_meta\">\n                            <ul class=\"info\">\n                                ";
+/* LINE:20 */
+if (twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "pinned")) {
+echo "<li class=\"date has_icon icon_posted pinned\"><div class=\"icon\"></div>\n                                <strong><a href=\"";
+/* LINE:21 */
+echo twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "url");
+echo "\">";
+echo twig_strftime_format_filter(twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "created_at"), twig_translate_string_filter("%B %d @ %I:%M %p"));
+echo "</a></strong></li>\n                                ";
+} else {
+/* LINE:22 */
+echo "\n                                <li class=\"date has_icon icon_posted\"><div class=\"icon\"></div>\n                                    <a href=\"";
+/* LINE:24 */
+echo twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "url");
+echo "\">";
+echo twig_strftime_format_filter(twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "created_at"), twig_translate_string_filter("%B %d"));
+echo "</a></li>\n                                ";
+}
+/* LINE:25 */
+echo "\n                                ";
+/* LINE:26 */
+if ((twig_get_attribute((isset($context['enabled_modules']) ? $context['enabled_modules'] : NULL), "comments")) && (call_user_func(array(twig_get_attribute((isset($context['visitor']) ? $context['visitor'] : NULL), "group"), "can"), "add_comment"))) {
+echo "\n                                <li class=\"comment_count has_icon icon_comment\"><div class=\"icon\"></div>\n                                <a href=\"";
+/* LINE:28 */
+echo twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "url");
+echo "#comments\">\n                                ";
+/* LINE:29 */
+echo sprintf(twig_translate_plural_string_filter("%s Comment", "%s Comments", twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "comment_count")), twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "comment_count"));
+echo "</a></li>\n                                ";
+}
+/* LINE:30 */
+echo "\n                                ";
+/* LINE:31 */
+if ((twig_get_attribute((isset($context['enabled_modules']) ? $context['enabled_modules'] : NULL), "likes")) && (call_user_func(array(twig_get_attribute((isset($context['visitor']) ? $context['visitor'] : NULL), "group"), "can"), "like_post"))) {
+echo "\n                                <li class=\"like_count has_icon icon_like\"><div class=\"icon\"></div>";
+/* LINE:32 */
+echo twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "get_likes");
+echo "</li>\n                                ";
+}
+/* LINE:33 */
+echo "\n                                ";
+/* LINE:34 */
+if ((twig_get_attribute((isset($context['enabled_modules']) ? $context['enabled_modules'] : NULL), "categorize")) && (twig_get_attribute(twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "category"), "id") != ($tmp1 = 0))) {
+echo "\n                                <li class=\"category has_icon icon_category\"><div class=\"icon\"></div>\n                                    <a href=\"";
+/* LINE:36 */
+echo twig_get_attribute(twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "category"), "url");
+echo "\" rel=\"tag\">";
+echo twig_get_attribute(twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "category"), "name");
+echo "</a></li>\n                                ";
+}
+/* LINE:37 */
+echo "\n                            </ul>\n                            <span class=\"permalink has_icon icon_permalink\"><div class=\"icon\"></div><a href=\"";
+/* LINE:39 */
+echo twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "url");
+echo "\">Permalink</a></span>\n                            ";
+/* LINE:40 */
+if (twig_length_filter(twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "linked_tags")) > ($tmp1 = 0)) {
+echo "\n                            <span class=\"tags has_icon icon_tags\"><div class=\"icon\"></div>\n                            ";
+/* LINE:42 */
+echo twig_translate_string_filter("Tags");
+echo ": ";
+echo twig_join_filter(twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "linked_tags"), " ");
+echo "\n                            </span>\n                            ";
+}
+/* LINE:44 */
+echo "\n                        </div>\n                        <div class=\"clear\"></div>\n                        ";
+/* LINE:47 */
+if ((twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "editable")) || (twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "deletable"))) {
+echo "\n                        <span class=\"controls\">";
+/* LINE:48 */
+echo twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "edit_link");
+echo " ";
+echo call_user_func(array((isset($context['post']) ? $context['post'] : NULL), "delete_link"), twig_translate_string_filter("Delete"), " | ");
+echo "</span>\n                        ";
+}
+/* LINE:49 */
+echo "\n                        <div class=\"clear\"></div>\n                    </div>\n                    <div class=\"post_shadow\"></div>\n                </div>\n";
+}
+/* LINE:10 */
+public function block_content($context) {
+}
+
+}

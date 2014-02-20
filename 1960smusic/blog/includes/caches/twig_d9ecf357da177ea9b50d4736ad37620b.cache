@@ -1,0 +1,47 @@
+<?php
+$this->requireTemplate("content/post.twig");
+class __TwigTemplate_d9ecf357da177ea9b50d4736ad37620b extends __TwigTemplate_9a03d49621a9353c4c028163b46237c9 {
+/* LINE:3 */
+public function block_content($context) {
+$context['::superblock'] = array($this, 'parent::block_content');
+echo "\n    ";
+/* LINE:4 */
+if (twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "title", false)) {
+echo "\n        <h2 class=\"title\">\n            <a href=\"";
+/* LINE:6 */
+echo twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "url");
+echo "\" rel=\"bookmark\" title=\"";
+echo twig_translate_string_filter("Permanent Link to");
+echo " &quot;";
+echo twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "title");
+echo "&quot;\">";
+echo twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "title");
+echo "</a>\n        </h2>\n        ";
+/* LINE:8 */
+if (twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "pinned")) {
+echo "<li class=\"date has_icon icon_posted pinned\"><div class=\"icon\"></div>\n                                <strong><a href=\"";
+/* LINE:9 */
+echo twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "url");
+echo "\">";
+echo twig_strftime_format_filter(twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "created_at"), twig_translate_string_filter("%B %d @ %I:%M %p"));
+echo "</a></strong></li>\n                                ";
+} else {
+/* LINE:10 */
+echo "\n                                <li class=\"date has_icon icon_posted\"><div class=\"icon\"></div>\n                                    <a href=\"";
+/* LINE:12 */
+echo twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "url");
+echo "\">";
+echo twig_strftime_format_filter(twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "created_at"), twig_translate_string_filter("%B %d"));
+echo "</a></li>\n                                ";
+}
+/* LINE:13 */
+echo "\n    ";
+}
+/* LINE:14 */
+echo "\n    <p>";
+/* LINE:15 */
+echo twig_missing_filter("read_more", twig_get_attribute((isset($context['post']) ? $context['post'] : NULL), "body"));
+echo "</p>\n";
+}
+
+}
