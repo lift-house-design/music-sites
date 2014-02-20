@@ -1,0 +1,16 @@
+{% extends "content/post.twig" %}
+
+{% block content %}
+    {% if post['title'] %}
+        <h2 class="title">
+            <a href="$post.url" rel="bookmark" title="${ "Permanent Link to" | translate } &quot;$post.title&quot;">$post.title</a>
+        </h2>
+        {% if post.pinned %}<li class="date has_icon icon_posted pinned"><div class="icon"></div>
+                                <strong><a href="$post.url">${ post.created_at | strftime("%B %d @ %I:%M %p" | translate) }</a></strong></li>
+                                {% else %}
+                                <li class="date has_icon icon_posted"><div class="icon"></div>
+                                    <a href="$post.url">${ post.created_at | strftime("%B %d" | translate) }</a></li>
+                                {% endif %}
+    {% endif %}
+    <p>${ post.body | read_more }</p>
+{% endblock %}
